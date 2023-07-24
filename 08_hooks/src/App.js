@@ -1,23 +1,10 @@
 import { useState } from "react";
 import Info from "./Info";
 import Counter from "./Counter";
+import Average from "./Average";
 
 const App = () => {
-    // return <Counter />;
-    // const [visible, setVisible] = useState(false);
-    return (
-        // <div>
-        //     <button
-        //         onClick={() => {
-        //             setVisible(!visible);
-        //         }}>
-        //         {visible ? "Un-visible" : "Visible"}
-        //     </button>
-        //     <hr />
-        //     {visible && <Info />}
-        // </div>
-        <Info />
-    );
+    return <Average />;
 };
 
 export default App;
