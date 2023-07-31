@@ -2,115 +2,79 @@ import styled, { css } from "styled-components";
 
 /* EARTH */
 const Heading1 = styled.div`
-    ${({ left, right, top }) => {
-        css`
-            position: absolute;
-            height: 172px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    /* position: absolute; */
+    position: relative;
+    height: 172px;
 
-            font-family: "Bellefair";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 150px;
-            line-height: 172px;
-            /* identical to box height */
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 150px;
+    line-height: 172px;
+    /* identical to box height */
 
-            color: #ffffff;
-        `;
-    }}
+    color: #ffffff;
 `;
 
 /* VENUS */
 const Heading2 = styled.div`
-    ${({ left, right, top }) => {
-        css`
-            position: absolute;
-            height: 115px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    height: 115px;
 
-            font-family: "Bellefair";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 100px;
-            line-height: 115px;
-            /* identical to box height */
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 115px;
+    /* identical to box height */
 
-            color: #ffffff;
-        `;
-    }}
+    color: #ffffff;
 `;
 
 /* JUPITER & SATURN */
 const Heading3 = styled.div`
-    ${({ left, right, top }) => {
-        css`
-            position: absolute;
-            height: 64px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    height: 64px;
 
-            font-family: "Bellefair";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 56px;
-            line-height: 64px;
-            text-transform: uppercase;
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 64px;
+    text-transform: uppercase;
 
-            color: #ffffff;
-        `;
-    }}
+    color: #ffffff;
 `;
 
 /* URANUS, NEPTUNE, & P */
 const Heading4 = styled.div`
-    ${({ left, right, top }) => {
-        css`
-            position: absolute;
-            height: 37px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    height: 37px;
 
-            font-family: "Bellefair";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 32px;
-            line-height: 37px;
-            /* identical to box height */
-            text-transform: uppercase;
+    font-family: "Bellefair";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    /* identical to box height */
+    text-transform: uppercase;
 
-            color: #ffffff;
-        `;
-    }}
+    color: #ffffff;
 `;
 
 const Heading5 = styled.div`
-    ${({ left, right, top }) => {
-        css`
-            /* SO, YOU WANT TO TRAV */
+    /* SO, YOU WANT TO TRAV */
 
-            position: absolute;
-            height: 34px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    /* position: absolute; */
+    position: relative;
+    height: 34px;
 
-            font-family: "Barlow Condensed";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 28px;
-            line-height: 34px;
-            /* identical to box height */
-            letter-spacing: 4.725px;
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+    letter-spacing: 4.725px;
 
-            color: #d0d6f9;
-        `;
-    }}
+    color: #d0d6f9;
 `;
 
 export { Heading1, Heading2, Heading3, Heading4, Heading5 };

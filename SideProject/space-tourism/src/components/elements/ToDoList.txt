@@ -1,0 +1,8 @@
+1. Button - O
+2. Header - O
+3. Headings - O
+4. Pictures - O
+5. Sliders - O
+6. SubHeadings - O
+7. Taps
+8. Texts - O

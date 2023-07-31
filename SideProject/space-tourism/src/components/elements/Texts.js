@@ -1,44 +1,30 @@
 import styled, { css } from "styled-components";
 
 const NavText = styled.div`
-    ${(left, right, top) => {
-        css`
-            position: absolute;
-            height: 19px;
-            left: 0%;
-            right: 89.04%;
-            top: calc(50% - 19px / 2 + 20px);
+    height: 19px;
 
-            font-family: "Barlow Condensed";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 19px;
-            letter-spacing: 2.7px;
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2.7px;
 
-            color: #ffffff;
-        `;
-    }}
+    color: #d0d6f9;
 `;
 
 const BodyText = styled.div`
-    ${(left, right, top) => {
-        css`
-            position: absolute;
-            height: 384px;
-            left: ${left}%;
-            right: ${right}%;
-            top: ${top};
+    /* position: absolute; */
+    position: relative;
+    /* height: 384px; */
+    width: 444px;
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
 
-            font-family: "Barlow";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 32px;
-
-            color: #ffffff;
-        `;
-    }}
+    color: #d0d6f9;
 `;
 
 export { NavText, BodyText };
