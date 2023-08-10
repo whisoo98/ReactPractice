@@ -3,55 +3,86 @@ import moon from "../../images/destination/image-moon.png";
 import mars from "../../images/destination/image-mars.png";
 import europa from "../../images/destination/image-europa.png";
 import titan from "../../images/destination/image-titan.png";
-import desktop_background from "../../images/destination/background-destination-desktop.jpg";
+import background_desktop from "../../images/destination/background-destination-desktop.jpg";
 // import Pictures from "../elements/Pictures";
-import { Heading1, Heading2, Heading5 } from "../elements/Headings";
+import { Heading2 } from "../elements/Headings";
 import { BodyText } from "../elements/Texts";
-import Chpater from "../elements/Chapter";
-import Pictures from "../elements/Pictures";
 import { useState } from "react";
 import { useCallback } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Taps from "../elements/Taps";
 import { SubHeading1, SubHeading2 } from "../elements/SubHeadings";
+import { useLocation } from "react-router-dom";
 
 const ContentBox = styled.div`
+    position: absolute;
     display: flex;
-    padding: 310px 0px 0px 157px;
-    width: 445px;
-    height: 472px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    /* min-width: 100vw; */
+    aspect-ratio: auto;
+    min-height: 140vh;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-color: #0b0d17;
+    background-image: url(${background_desktop});
+`;
+
+const LeftBox = styled.div`
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    /* max-width: 30.903%;
+    max-height: 49.444%;
+    min-width: 445px;
+    min-height: 445px; */
+    width: 30.903%;
+    height: 49.444%;
+    padding: 207px 0% 0% 15.972%;
+    background-size: cover;
+`;
+
+const RightBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30.903%;
+    height: 52.444%;
+    padding: 174px 0px 0px 17.444%;
+    /* background-color: blue; */
 `;
 
 const Line = styled.div`
-    /* position: absolute; */
-    width: 444px;
-    /* height: 10px; */
+    width: 100%;
+    position: relative;
+    /* width: 100px; */
     height: 1px;
-    /* top: 88px; */
-    /* margin: auto 0; */
-
-    background: #ffffff;
+    /* height: 1px; */
     /* background: red; */
+    background: #ffffff;
     mix-blend-mode: normal;
     opacity: 0.25;
+    margin-top: 6%;
+    /* margin-top: 11.441%; */
 `;
 
 const SubHeadingBox = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 153px;
-    height: 61px;
+    /* min-width: 42.466%; */
+    height: 100%;
+    & + & {
+        padding-left: 5rem;
+    }
 `;
 
 const SubHeadingList = styled.div`
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
-    width: 365px;
-    height: 61px;
+    height: 12.924%;
+    padding-top: 5.932%;
 `;
 
 const Destination = ({ category, idx, onSelect }) => {
@@ -98,33 +129,23 @@ const Destination = ({ category, idx, onSelect }) => {
         },
     };
     const [planet, setPlanet] = useState("MOON");
-    const onSelectPlanet = useCallback((planet) => setPlanet(planet), [planet]);
+    const onSelectPlanet = useCallback((planet) => setPlanet(planet), []);
+    // onSelect("Destination", 1);
 
     return (
-        <div
-            style={{
-                // backgroundColor: "black",
-                display: "flex",
-                backgroundSize: "cover",
-                width: "100vw",
-                height: "100vh",
-                backgroundImage: `url(${desktop_background})`,
-                // backgroundImage: `url(${Pictures.destination.desktop_background})`,
-                alignItems: "flex-end",
-                // width: "1440px",
-                // height: "900px",
-            }}>
+        <ContentBox>
             <Header category={category} idx={idx} onSelect={onSelect}></Header>
-            <img
-                style={{
-                    padding: "343px 0px 0px 230px",
-                    width: "445px",
-                    height: "445px",
-                    // background: "red",
-                }}
-                src={content[planet].img}
-            />
-            <ContentBox>
+            <LeftBox>
+                <img
+                    src={content[planet].img}
+                    alt="Not an Img"
+                    style={{
+                        height: "100%",
+                        width: "100%",
+                    }}
+                />
+            </LeftBox>
+            <RightBox>
                 <Taps planet={planet} onSelectPlanet={onSelectPlanet} />
                 <Heading2>{content[planet].heading2}</Heading2>
                 <BodyText>{content[planet].body}</BodyText>
@@ -147,8 +168,8 @@ const Destination = ({ category, idx, onSelect }) => {
                         </SubHeading1>
                     </SubHeadingBox>
                 </SubHeadingList>
-            </ContentBox>
-        </div>
+            </RightBox>
+        </ContentBox>
     );
 };
 

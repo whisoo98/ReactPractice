@@ -4,13 +4,13 @@ import styled, { css } from "styled-components";
 const Heading1 = styled.div`
     /* position: absolute; */
     position: relative;
-    height: 172px;
+    height: 10.75rem;
 
     font-family: "Bellefair";
     font-style: normal;
     font-weight: 400;
-    font-size: 150px;
-    line-height: 172px;
+    font-size: 9.375rem;
+    line-height: 10.75rem;
     /* identical to box height */
 
     color: #ffffff;
@@ -32,16 +32,18 @@ const Heading2 = styled.div`
 
 /* JUPITER & SATURN */
 const Heading3 = styled.div`
-    height: 64px;
+    height: 4rem;
 
     font-family: "Bellefair";
     font-style: normal;
     font-weight: 400;
-    font-size: 56px;
-    line-height: 64px;
+    font-size: 3.5rem;
+    line-height: 4rem;
     text-transform: uppercase;
-
+    padding: 0;
+    margin: 0;
     color: #ffffff;
+    padding-bottom: 6.65%;
 `;
 
 /* URANUS, NEPTUNE, & P */
@@ -55,8 +57,11 @@ const Heading4 = styled.div`
     line-height: 37px;
     /* identical to box height */
     text-transform: uppercase;
-
+    padding: 0;
+    margin: 0;
     color: #ffffff;
+    opacity: 0.5042;
+    padding-bottom: 3.695%;
 `;
 
 const Heading5 = styled.div`
@@ -64,13 +69,13 @@ const Heading5 = styled.div`
 
     /* position: absolute; */
     position: relative;
-    height: 34px;
+    height: 2rem;
 
     font-family: "Barlow Condensed";
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
-    line-height: 34px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     /* identical to box height */
     letter-spacing: 4.725px;
 

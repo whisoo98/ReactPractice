@@ -13,28 +13,33 @@ import Destination from "./components/1_destination/Destination";
 import Chpater from "./components/elements/Chapter";
 import Crew from "./components/2_crew/Crew";
 import Technology from "./components/3_technology/Technology";
+import background_desktop from "./images/home/background-home-desktop.jpg";
+
 // TODO
 //
 
 const App = () => {
     const [category, setCategory] = useState("Home");
     const [idx, setIdx] = useState(null);
-    const onSelect = useCallback(
-        (category, idx) => (setCategory(category), setIdx(idx)),
-        [category]
-    );
+    const onSelect = useCallback((category, idx) => {
+        setCategory(category);
+        setIdx(idx);
+    }, []);
     return (
-        <div
-            style={{
-                // backgroundColor: "black",
-                // backgroundSize: "cover",
-                minWidth: "100vw",
-                minHeight: "100vh",
-                width: "1440px",
-                height: "900px",
-            }}>
-            {category === ("" | "Home") ? null : <Chpater idx={idx} />}
-
+        <>
+            {/* <div
+                style={{
+                    position: "absolute",
+                    display: "flex",
+                    backgroundColor: "#0b0d17",
+                    backgroundSize: "cover",
+                    minWidth: "100vw",
+                    minHeight: "100vh",
+                    // width: "1440px",
+                    // height: "900px",
+                    width: "100%",
+                    height: "100%",
+                }}></div> */}
             <Routes>
                 <Route
                     path="/"
@@ -46,7 +51,7 @@ const App = () => {
                         />
                     }></Route>
                 <Route
-                    path="/Home"
+                    path="/Home/"
                     element={
                         <Home
                             category={category}
@@ -55,7 +60,7 @@ const App = () => {
                         />
                     }></Route>
                 <Route
-                    path="/Destination"
+                    path="/Destination/"
                     element={
                         <Destination
                             category={category}
@@ -64,7 +69,7 @@ const App = () => {
                         />
                     }></Route>
                 <Route
-                    path="/Crew"
+                    path="/Crew/"
                     element={
                         <Crew
                             category={category}
@@ -73,7 +78,7 @@ const App = () => {
                         />
                     }></Route>
                 <Route
-                    path="/Technology"
+                    path="/Technology/"
                     element={
                         <Technology
                             category={category}
@@ -87,7 +92,7 @@ const App = () => {
             <SliderHorizontal />
             <SliderVertical />
             <Taps tap="MOON"></Taps> */}
-        </div>
+        </>
     );
 };
 

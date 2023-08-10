@@ -1,8 +1,8 @@
 import Header from "../elements/Header";
 import douglas from "../../images/crew/image-douglas-hurley.png";
-import desktop_background from "../../images/crew/background-crew-desktop.jpg";
-import mobile_background from "../../images/crew/background-crew-mobile.jpg";
-import tablet_background from "../../images/crew/background-crew-tablet.jpg";
+import background_desktop from "../../images/crew/background-crew-desktop.jpg";
+import background_mobile from "../../images/crew/background-crew-mobile.jpg";
+import background_tablet from "../../images/crew/background-crew-tablet.jpg";
 import anousheh from "../../images/crew/image-anousheh-ansari.png";
 import mark from "../../images/crew/image-mark-shuttleworth.png";
 import victor from "../../images/crew/image-victor-glover.png";
@@ -13,19 +13,41 @@ import { SliderHorizontal } from "../elements/Sliders";
 import { useState } from "react";
 import { useCallback } from "react";
 
-const LeftContent = styled.div`
+const ContentBox = styled.div`
+    position: absolute;
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 400px 0px 0px 165px;
-    height: 406px;
+    flex-wrap: wrap;
+    /* min-width: 100vw; */
+    aspect-ratio: auto;
+    min-height: 140vh;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-color: #0b0d17;
+    background-image: url(${background_desktop});
 `;
 
-const RightContent = styled.div`
+const LeftContentBox = styled.div`
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    padding: 17.111% 0px 0px 11.458%;
+    /* height: 406px; */
+    min-height: 45.111%;
+    min-width: 30.833%;
 
-    padding: 180px 0px 0px 81.43px;
-    height: 80%;
+    max-width: 48.674%;
+`;
+
+const RightContentBox = styled.div`
+    display: flex;
+    position: relative;
+    aspect-ratio: auto;
+    background-size: cover;
+    padding: 8.889% 0px 0px 8.048%;
+    max-height: 73%;
 `;
 
 const Crew = ({ category, idx, onSelect }) => {
@@ -57,45 +79,28 @@ const Crew = ({ category, idx, onSelect }) => {
     };
     const [crew, setCrew] = useState("DOUGLAS");
     const onSelectCrew = useCallback((crew) => setCrew(crew), []);
+    // onSelect("Crew", 2);
+
     return (
-        <div
-            style={{
-                // backgroundColor: "black",
-                backgroundSize: "cover",
-                minWidth: "100vw",
-                minHeight: "100vh",
-                width: "100%",
-                height: "100%",
-                backgroundImage: `url(${desktop_background})`,
-                alignItems: "flex-end",
-                backgroundColor: `rgba(0, 0, 0, 0.25)`,
-                // opacity: 0.25,
-                // width: "1440px",
-                // height: "900px",
-            }}>
+        <ContentBox>
             <Header category={category} idx={idx} onSelect={onSelect}></Header>
-            <div
-                style={{
-                    display: "flex",
-                }}>
-                <LeftContent>
-                    <Heading4>{crews[crew].heading4}</Heading4>
-                    <Heading3>{crews[crew].heading3}</Heading3>
-                    <BodyText>{crews[crew].body}</BodyText>
-                    <SliderHorizontal
-                        style={{
-                            alignContents: "flex-end",
-                            // alignItems: "flex-end",
-                        }}
-                        crew={crew}
-                        onSelectCrew={onSelectCrew}
-                    />
-                </LeftContent>
-                <RightContent>
-                    <img src={crews[crew].img} />
-                </RightContent>
-            </div>
-        </div>
+            <LeftContentBox>
+                <Heading4>{crews[crew].heading4}</Heading4>
+                <Heading3>{crews[crew].heading3}</Heading3>
+                <BodyText>{crews[crew].body}</BodyText>
+                <SliderHorizontal
+                    style={{
+                        alignContents: "flex-end",
+                        // alignItems: "flex-end",
+                    }}
+                    crew={crew}
+                    onSelectCrew={onSelectCrew}
+                />
+            </LeftContentBox>
+            <RightContentBox>
+                <img src={crews[crew].img} alt="Not An IMG" />
+            </RightContentBox>
+        </ContentBox>
     );
 };
 

@@ -6,10 +6,26 @@ const CircleBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 319px;
-    left: 825px;
-    width: 450px;
-    height: 450px;
+    /* top: 343px; */
+    top: 55%;
+    left: 69.514%;
+    transition: outline 0.2s linear;
+    outline: 0px solid rgba(255, 255, 255, 0.1);
+    aspect-ratio: 1 / 1;
+    width: 15.625%;
+
+    /* height: 50%; */
+    color: #0b0d17;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+
+    &:hover {
+        cursor: pointer;
+        color: #0b0d17;
+        outline-width: 88px;
+    }
 `;
 
 const OuterCircle = styled.div`
@@ -17,8 +33,8 @@ const OuterCircle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 274px;
-    height: 274px;
+    aspect-ratio: 1 / 1;
+    width: 50%;
 
     font-family: "Bellefair";
     font-style: normal;
@@ -34,8 +50,8 @@ const OuterCircle = styled.div`
     color: #0b0d17;
     background-color: rgba(255, 255, 255, 0.1);
     &:hover {
-        width: 450px;
-        height: 450px;
+        width: 100%;
+        cursor: pointer;
     }
 `;
 
@@ -44,8 +60,8 @@ const InnerCircle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 274px;
-    height: 274px;
+    /* aspect-ratio: 1 / 1;
+    width: 100%; */
     /* top: 200px;
     left: 200px; */
     font-family: "Bellefair";
@@ -56,19 +72,23 @@ const InnerCircle = styled.div`
     /* identical to box height */
     letter-spacing: 2px;
 
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     border-radius: 50%;
     color: #0b0d17;
-    background-color: white;
+    background-color: white; */
+    /* &:hover {
+        width: 50%;
+        cursor: pointer;
+    } */
 `;
 
 const Button = () => {
     return (
         <CircleBox>
-            <OuterCircle>
-                <InnerCircle>EXPLORE</InnerCircle>
-            </OuterCircle>
+            {/* <OuterCircle> */}
+            <InnerCircle>EXPLORE</InnerCircle>
+            {/* </OuterCircle> */}
         </CircleBox>
     );
 };

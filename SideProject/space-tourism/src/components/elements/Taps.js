@@ -74,7 +74,7 @@ const Taps = ({ planet, onSelectPlanet }) => {
                     key={p.id}
                     active={planet === p.planet}
                     onClick={() => onSelectPlanet(p.planet)}>
-                    <TapWord>{p.planet}</TapWord>
+                    <TapWord active={planet === p.planet}>{p.planet}</TapWord>
                 </TapBox>
             ))}
         </TapBackground>

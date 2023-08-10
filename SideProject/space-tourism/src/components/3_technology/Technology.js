@@ -1,4 +1,4 @@
-import desktop_background from "../../images/technology/background-technology-desktop.jpg";
+import background_desktop from "../../images/technology/background-technology-desktop.jpg";
 import mobile_background from "../../images/technology/background-technology-mobile.jpg";
 import tablet_background from "../../images/technology/background-technology-tablet.jpg";
 import launch_vehicle_landscape from "../../images/technology/image-launch-vehicle-landscape.jpg";
@@ -15,31 +15,51 @@ import { BodyText, NavText } from "../elements/Texts";
 import { useState } from "react";
 import { useCallback } from "react";
 
-const LeftContent = styled.div`
+const ContentBox = styled.div`
+    position: absolute;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    /* min-width: 100vw; */
+    aspect-ratio: auto;
+    min-height: 140vh;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-color: #0b0d17;
+    background-image: url(${background_desktop});
+`;
+const LeftContent = styled.div`
+    position: relative;
+    display: flex;
+    /* justify-content: space-around; */
     flex-direction: row;
-    padding: 383px 0px 0px 165px;
-    height: 304px;
+    padding: 17.153% 0px 0px 11.458%;
+    height: 33.778%;
+    max-width: 43.75%;
 `;
 
 const LeftContentBox = styled.div`
+    position: relative;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    min-width: 444px;
-    padding: 0px 0px 0px 80px;
-    height: 304px;
+    max-width: 74.603%;
+    padding: 0px 0px 0px 12.698%;
 `;
 
 const RightContent = styled.div`
+    position: relative;
     display: flex;
-    width: 515px;
-    height: 527px;
-    padding: 272px 0px 0px 156px;
+    /* width: 515px;
+    height: 527px; */
+    width: 35.764%;
+    height: 58.556%;
+
+    padding: 15.111% 0px 0px 7.5%;
 `;
 
 const Technology = ({ category, idx, onSelect }) => {
+    // onSelect("Technology", 3);
     const technologies = {
         LAUNCH_VEHICLE: {
             img: launch_vehicle_portrait,
@@ -63,39 +83,25 @@ const Technology = ({ category, idx, onSelect }) => {
         []
     );
     return (
-        <div
-            style={{
-                // backgroundColor: "black",
-                display: "flex",
-                backgroundSize: "cover",
-                minWidth: "100vw",
-                minHeight: "100vh",
-                width: "100%",
-                height: "100%",
-                backgroundImage: `url(${desktop_background})`,
-                backgroundColor: `rgba(0, 0, 0, 0.25)`,
-                // opacity: 0.25,
-                // width: "1440px",
-                // height: "900px",
-            }}>
+        <ContentBox>
             <Header category={category} idx={idx} onSelect={onSelect}></Header>
-            <div style={{ display: "flex" }}>
-                <LeftContent>
-                    <SliderVertical
-                        onSelectTechnology={onSelectTechnology}
-                        technology={technology}
-                    />
-                    <LeftContentBox>
-                        <NavText>THE TERMINOLOGY…</NavText>
-                        <Heading3>{technologies[technology].heading3}</Heading3>
-                        <BodyText>{technologies[technology].body}</BodyText>
-                    </LeftContentBox>
-                </LeftContent>
-                <RightContent>
-                    <img src={technologies[technology].img} />
-                </RightContent>
-            </div>
-        </div>
+            <LeftContent>
+                <SliderVertical
+                    onSelectTechnology={onSelectTechnology}
+                    technology={technology}
+                />
+                <LeftContentBox>
+                    <NavText>THE TERMINOLOGY…</NavText>
+                    <Heading3>{technologies[technology].heading3}</Heading3>
+                    <BodyText style={{ maxWidth: "95%" }}>
+                        {technologies[technology].body}
+                    </BodyText>
+                </LeftContentBox>
+            </LeftContent>
+            <RightContent>
+                <img src={technologies[technology].img} alt="Not An Img" />
+            </RightContent>
+        </ContentBox>
     );
 };
 

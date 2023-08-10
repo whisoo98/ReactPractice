@@ -3,9 +3,12 @@ import styled, { css } from "styled-components";
 const SliderHorizontalBox = styled.div`
     padding: 0;
     margin: 0;
-    width: 132px;
+    /* width: 132px; */
+    width: 20.952%;
     display: flex;
     justify-content: space-between;
+    /* padding-top: 30px; */
+    padding-top: 29.557%;
 `;
 
 const SliderHorizontalButton = styled.div`
@@ -58,8 +61,9 @@ const SliderVerticalButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    aspect-ratio: 1/1;
+    width: 100%;
+
     font-family: "Bellefair";
     font-style: normal;
     font-weight: 400;
@@ -98,8 +102,11 @@ const SliderVerticalButton = styled.div`
 const SliderVerticalBox = styled.div`
     display: flex;
     flex-direction: column;
-    height: 304px;
+    height: 100%;
+    width: 12.698%;
     justify-content: space-between;
+    padding: 0;
+    margin: 0;
 `;
 
 const SliderVertical = ({ onSelectTechnology, technology }) => {

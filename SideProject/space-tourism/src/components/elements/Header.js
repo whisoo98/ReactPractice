@@ -1,21 +1,28 @@
 import styled, { css } from "styled-components";
 import logo from "../../images/shared/logo.svg";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
+import Chpater from "./Chapter";
 
 const HeaderBackground = styled.div`
     /* Group 21 */
-    position: absolute;
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
     /* flex-direction: row; */
     /* align-content: center; */
-    /* align-items: center; */
+    align-items: center;
     /* justify-content: space-around; */
 
     /* position: absolute; */
-    width: 1385px;
+    /* width: 1385px;
     height: 96px;
     left: 55px;
-    top: 40px;
+    top: 40px; */
+    min-width: calc(100% - 3.82%);
+    /* width: 100%; */
+    height: 96px;
+    left: 3.82%;
+    top: 6.22%;
     padding: 0px;
     margin: 0px;
     /* left: 0px;
@@ -38,10 +45,13 @@ const HeaderBackground = styled.div`
 const Logo = styled.img.attrs({
     src: `${logo}`,
 })`
-    left: 55px;
+    display: relative;
+    /* left: 55px; */
     margin: auto 0;
-    width: 48px;
-    height: 48px;
+    /* width: 48px;
+    height: 48px; */
+    /* width: 3.33vw;
+    height: 5.33vh; */
     &:hover {
         cursor: pointer;
     }
@@ -50,13 +60,17 @@ const Logo = styled.img.attrs({
 const Line = styled.div`
     /* position: absolute; */
     position: relative;
-    width: 473px;
+    /* width: calc(473px / 1440px); */
+    width: 32.85%;
     /* height: 10px; */
     height: 1px;
-    left: 112px;
+    /* left: calc(64px / 1440px); */
+    left: 4.45%;
+    padding-left: 4.444%;
+    /* left: 11.6%; */
     /* top: 88px; */
     margin: auto 0;
-
+    z-index: 1;
     background: #ffffff;
     /* background: red; */
     mix-blend-mode: normal;
@@ -88,7 +102,7 @@ const HeaderCategoryWord = styled.div`
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 2.7px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin-left: 10px;
     margin-right: auto;
     padding: 0;
@@ -108,8 +122,8 @@ const HeaderCategoryNumber = styled.div`
     font-family: "Barlow Condensed";
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1rem;
+    line-height: 1.1875rem;
     letter-spacing: 2.7px;
 
     margin-left: auto;
@@ -125,7 +139,7 @@ const HeaderCategoryBackground = styled.div`
     justify-content: center;
     /* align-content: center; */
     /* align-items: center; */
-    width: 830px;
+    width: 57.64%;
     height: 96px;
     /* left: 610px */
     /* top: 40px; */
@@ -174,7 +188,7 @@ const HeaderCategoryBox = styled.div`
     /* margin: 0px; */
     /* background-color: black; */
     & + & {
-        margin-left: 2rem;
+        margin-left: 5rem;
     }
 `;
 
@@ -198,20 +212,25 @@ const HeaderCategory = ({ category, onSelect }) => {
             word: "Technology",
         },
     ];
+
+    const { pathname } = useLocation();
+    category = pathname.split("/")[1];
+    
+    if (category === "") category = "Home";
     return (
         <HeaderCategoryBackground>
             {categoties.map((c) => (
                 <HeaderCategoryBox
                     key={c.number}
                     active={category === c.word}
-                    onClick={() => (
+                    onClick={() => {
                         c.number === "0"
                             ? onSelect(c.word, null)
-                            : onSelect(c.word, c.number),
+                            : onSelect(c.word, c.number);
                         c.word === "Home"
                             ? navigate("/")
-                            : navigate(`/${c.word}`)
-                    )}>
+                            : navigate(`/${c.word}`);
+                    }}>
                     <HeaderCategoryTitle>
                         <HeaderCategoryNumber>
                             {"0" + c.number}
@@ -226,10 +245,15 @@ const HeaderCategory = ({ category, onSelect }) => {
 
 const Header = ({ onSelect, idx, category }) => {
     return (
-        <HeaderBackground className="BackGround">
-            <Logo logo={logo} onClick={() => onSelect("Home", null)} />
+        <HeaderBackground>
+            <NavLink to="/Home">
+                <Logo logo={logo} />
+            </NavLink>
             <Line />
-            <HeaderCategory onSelect={onSelect} category={category} idx={idx} />
+            <HeaderCategory onSelect={onSelect} category={category} />
+            {category === "" || category === "Home" ? null : (
+                <Chpater idx={idx} />
+            )}
         </HeaderBackground>
     );
 };

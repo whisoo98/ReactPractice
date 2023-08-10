@@ -1,14 +1,6 @@
 import styled, { css } from "styled-components";
 
 const ChapterNumber = styled.div`
-    /* 01 */
-
-    /* position: absolute;
-    height: 34px;
-    left: 0%;
-    right: 93.19%;
-    top: calc(50% - 34px / 2); */
-
     font-family: "Barlow Condensed";
     font-style: normal;
     font-weight: 700;
@@ -18,8 +10,6 @@ const ChapterNumber = styled.div`
     letter-spacing: 4.725px;
 
     mix-blend-mode: normal;
-    /* color: #ffffff;
-    opacity: 0.25; */
     color: rgba(255, 255, 255, 0.25);
 `;
 
@@ -36,20 +26,27 @@ const ChapterWord = styled.div`
     color: #ffffff;
 `;
 const ChapterBox = styled.div`
-    position: absolute;
-    top: 212px;
-    left: 166.5px;
+    /* position: absolute; */
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    top: 79.167%;
+    /* top: 212px; */
+    left: 4.45%;
+    justify-content: space-around;
     align-items: center;
     height: 34px;
+    padding: 0;
+    margin: 0;
+    padding-left: 4.444%;
+    /* padding-top: 23.556%; */
+    /* padding-top: 100%; */
 `;
 
 const Chpater = ({ idx }) => {
     const chapter_words = [
-        "Pick your destination",
-        "Meet your crew",
-        "SPACE LAUNCH 101",
+        "\u00A0\u00A0Pick your destination",
+        "\u00A0\u00A0Meet your crew",
+        "\u00A0\u00A0SPACE LAUNCH 101",
     ];
     console.log(idx);
     return (
